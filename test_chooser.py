@@ -44,10 +44,16 @@ class TestChooserCommand(sublime_plugin.WindowCommand):
 
   def format_line(self, line):
     if line == "Run'em All":
-      return "%s '%s'" % (self.filetype, self.filepath)
+      if 'rake' in self.filetype:
+        return "%s SPEC='%s'" % (self.filetype, self.filepath)
+      else:
+        return "%s '%s'" % (self.filetype, self.filepath)
     else:
       items = line.split(":")
-      return "%s '%s:%s'" % (self.filetype, self.filepath, items[0])
+      if 'rake' in self.filetype:
+        return "%s SPEC='%s:%s'" % (self.filetype, self.filepath, items[0])
+      else:
+        return "%s '%s:%s'" % (self.filetype, self.filepath, items[0])
 
   def execute_cmd(self, applescript, formatted_line):
     cmd = applescript.replace("$cmd", formatted_line)

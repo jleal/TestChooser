@@ -1,6 +1,5 @@
 #TestChooser
-A Sublime Text 2 plugin for quickly executing a RSpec & Cucumber commands in [iTerm](http://iterm.sourceforge.net/) or Apple's Terminal.
-
+A Sublime Text 2 plugin for quickly executing a RSpec & Cucumber commands in [iTerm](http://iterm.sourceforge.net/) or Apple's Terminal. This version allows you to use the rspec rake command as well.
 
 ## Description
 It first checks the current file to see that it is either a "feature" or "spec" file. If so, it reads the file looking for "it", "describe", "context" or "scenario" keywords that are at the beginning of a line.
